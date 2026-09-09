@@ -1,14 +1,41 @@
-# Preguntas abiertas para el RNC
+# Preguntas abiertas para la primera reunión con el RNC
 
-| ID | Pregunta | Impacto | Responsable de responder | Estado |
-|---|---|---|---|---|
-| Q-001 | ¿Qué población estándar debe utilizar el sistema? | Cálculo de tasas ajustadas | RNC / especialista epidemiológico | PENDIENTE |
-| Q-002 | ¿Qué grupos de edad oficiales se utilizan? | Modelo de datos y cálculos | RNC | PENDIENTE |
-| Q-003 | ¿Qué clasificación/codificación de cáncer se utiliza y qué versión? | Modelo de datos y comparabilidad | RNC | PENDIENTE |
-| Q-004 | ¿Cuál es la definición operativa de caso registrable? | Datos y reglas de inclusión | RNC | PENDIENTE |
-| Q-005 | ¿Qué fórmula y procedimiento exacto se utilizan para el método indirecto? | Motor estadístico | RNC | PENDIENTE |
-| Q-006 | ¿Qué política existe para resultados con pocos casos? | Publicación y confidencialidad | RNC | PENDIENTE |
-| Q-007 | ¿Qué reglas existen para múltiples primarios, duplicados y datos faltantes? | Calidad e integridad | RNC | PENDIENTE |
-| Q-008 | ¿Qué nivel WCAG debe alcanzar la plataforma? | UX/UI y validación | Equipo/RNC | PENDIENTE |
-| Q-009 | ¿Qué volúmenes históricos y tiempos de respuesta se esperan? | Arquitectura y rendimiento | RNC | PENDIENTE |
-| Q-010 | ¿Qué migración histórica se considera dentro de la tesis y qué preparación debe quedar en prácticas? | Alcance | Tutor/RNC | PENDIENTE |
+Estado: PENDIENTE
+
+Estas preguntas se mantienen deliberadamente abiertas. No deben convertirse en reglas de implementación hasta obtener respuesta del RNC.
+
+## Dominio epidemiológico
+
+- ¿Cuál es la definición operativa vigente de caso registrable?
+- ¿Qué clasificaciones y versiones de codificación se utilizan actualmente?
+- ¿Qué significa exactamente "localización" en las publicaciones actuales?
+- ¿Qué grupos de edad oficiales se utilizan?
+- ¿Qué población estándar se utiliza hoy para las tasas ajustadas?
+- ¿Cómo se calcula actualmente el ajuste directo?
+- ¿Cómo se calcula actualmente el ajuste indirecto?
+- ¿Qué intervalos de confianza utiliza el RNC y bajo qué condiciones?
+
+## Calidad y publicación
+
+- ¿Qué controles de completitud, consistencia y duplicados se ejecutan hoy?
+- ¿Qué indicadores de calidad se conocen internamente?
+- ¿Qué datos son preliminares y cuáles definitivos?
+- ¿Existe una política de supresión para pocos casos?
+- ¿Qué reglas de confidencialidad aplican a la publicación?
+- ¿Cómo se manejan datos faltantes?
+
+## Usuarios
+
+- ¿Quién consulta la información?
+- ¿Qué decisiones toman con ella?
+- ¿Qué preguntas repiten con mayor frecuencia?
+- ¿Qué tablas o PDFs actuales son más utilizados?
+- ¿Qué información solicitan actualmente porque no pueden obtenerla fácilmente del portal?
+
+## Operación
+
+- ¿Con qué periodicidad se actualizan los datos?
+- ¿Quién valida un nuevo conjunto antes de publicarlo?
+- ¿Cuál es el flujo desde el dato recibido hasta la publicación?
+- ¿Qué parte de la plataforma debe ser pública y cuál debe requerir autenticación?
+- ¿Qué roles administrativos son realmente necesarios?

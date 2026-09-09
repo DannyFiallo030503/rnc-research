@@ -1,20 +1,23 @@
-# Índice del conocimiento
+# Índice del conocimiento del proyecto RNC
 
-## Punto de entrada
+## Ruta recomendada
 
-1. [Negocio](01-negocio/README.md)
-2. [Benchmark de sistemas](02-benchmark/README.md)
-3. [Metodología epidemiológica](03-metodologia/README.md)
-4. [UX/UI y accesibilidad](04-ux-ui/README.md)
-5. [Requisitos y reglas de negocio](05-requisitos/README.md)
-6. [Arquitectura](06-arquitectura/README.md)
-7. [Decisiones](07-decisiones/README.md)
-8. [Reuniones](08-reuniones/README.md)
+1. `01-negocio/` — entender el registro y sus reglas.
+2. `02-benchmark/00-conclusiones.md` — síntesis de sistemas externos.
+3. `02-benchmark/matriz.md` — comparación homogénea.
+4. `03-metodologia/` — conceptos y métodos epidemiológicos.
+5. `04-ux-ui/02-evidencia-externa.md` — evidencia de usabilidad y accesibilidad.
+6. `05-requisitos/preguntas-abiertas.md` — preguntas que solo el RNC puede cerrar.
+7. `06-arquitectura/` — diseño posterior a la definición del dominio.
+8. `07-decisiones/` — decisiones formales y sus evidencias.
+9. `08-reuniones/` — actas y acuerdos.
+10. `sources/catalogo.md` — catálogo maestro de fuentes.
+11. `docs/evidence-map.md` — mapa de trazabilidad.
 
-## Matrices maestras
+## Regla central
 
-- [Catálogo de fuentes](../sources/catalogo.md)
-- [Registro de preguntas abiertas](05-requisitos/preguntas-abiertas.md)
-- [Registro de decisiones](07-decisiones/registro.md)
-- [Matriz de benchmark](02-benchmark/matriz.md)
-- [Mapa de evidencia](evidence-map.md)
+Nunca pasar directamente de "otro sistema lo hace" a "el RNC debe hacerlo".
+
+El flujo correcto es:
+
+**fuente → evidencia → interpretación → propuesta → validación con RNC → requisito/regla → implementación → prueba**.
