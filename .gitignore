@@ -1,0 +1,22 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temporales
+*.tmp
+*.bak
+~*
+
+# Datos potencialmente sensibles
+*.csv
+*.xlsx
+*.xls
+*.sqlite
+*.db
+
+# Archivos de sistema local
+.env
