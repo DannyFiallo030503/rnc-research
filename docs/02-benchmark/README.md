@@ -1,41 +1,22 @@
-# Benchmark de sistemas
+# Benchmark de sistemas y experiencias
 
-## Objetivo
+El objetivo no es recopilar sitios por cantidad. Cada ficha debe responder qué problema resuelve, qué evidencia existe de que funciona, qué limitaciones se documentan y qué puede o no transferirse al RNC.
 
-Analizar sistemas reales de registros de cáncer y plataformas epidemiológicas para extraer patrones útiles y fallos documentados.
+## Sistemas actuales
 
-## Regla de comparación
+- `seer.md`
+- `globocan.md`
+- `ecis.md`
+- `uscs.md`
+- `canreg5.md`
+- `north-carolina.md`
+- `colorado.md`
+- `missouri.md`
+- `cali.md`
+- `cardo.md`
+- `2025-dashboard-evaluation.md`
+- `matriz.md`
 
-No evaluar un sistema como "bueno" o "malo" solo por apariencia. Cada conclusión debe distinguir:
+## Regla
 
-- funcionalidad observada;
-- evidencia de utilidad;
-- evidencia de problemas;
-- contexto del sistema;
-- posible aplicación al RNC;
-- fuente.
-
-## Sistemas prioritarios
-
-1. SEER / SEER*Explorer
-2. IARC Global Cancer Observatory / Cancer Today
-3. ECIS
-4. U.S. Cancer Statistics
-5. North Carolina Central Cancer Registry
-6. Colorado Central Cancer Registry
-7. Missouri Cancer Registry
-8. Registro Poblacional de Cáncer de Cali y literatura asociada
-
-## Categorías
-
-- consulta y filtros;
-- indicadores y metodología;
-- tablas y gráficos;
-- mapas;
-- exportación;
-- accesibilidad;
-- usabilidad;
-- calidad y oportunidad del dato;
-- actualización;
-- transparencia metodológica;
-- limitaciones y supresión.
+Una funcionalidad externa es `EVIDENCIA`, no `CONFIRMADO`, hasta que el RNC la valide como necesidad o requisito.

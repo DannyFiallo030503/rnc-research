@@ -1,105 +1,87 @@
-# Conclusiones del benchmark — corte 2026-09-09
+# Conclusiones del benchmark
 
 Estado: EVIDENCIA + PROPUESTA
+Corte: 2026-09-09
 
-Este documento sintetiza el primer benchmark profundo. No convierte ninguna práctica externa en requisito del RNC.
+## Patrones que se repiten
 
-## Patrones con evidencia repetida
+### 1. Exploración multidimensional
 
-### 1. Consulta multidimensional
+SEER*Explorer y Cancer Today permiten combinar dimensiones epidemiológicas y cambiar la vista sin reconstruir manualmente los datos.
 
-SEER, GLOBOCAN y USCS permiten combinar varias dimensiones epidemiológicas antes de presentar el resultado.
-
-**Aplicación potencial:** una consulta debe representar claramente el conjunto de filtros y el indicador calculado.
+Fuentes: `SRC-SEER-002`, `SRC-IARC-001`.
 
 ### 2. Tabla + visualización
 
-Los sistemas maduros no dependen exclusivamente de gráficos. SEER y USCS proporcionan tablas y descargas, mientras GLOBOCAN mantiene representaciones tabulares en varias vistas.
+Los sistemas maduros no dependen exclusivamente de un gráfico. La tabla permite inspección, comparación, accesibilidad y exportación.
 
-**Aplicación potencial:** el valor numérico y la visualización deben poder contrastarse.
+Fuentes: `SRC-SEER-002`, `SRC-CDC-002`, `SRC-IARC-001`.
 
 ### 3. Metodología visible
 
-SEER, GLOBOCAN, ECIS y USCS acompañan los resultados con documentación o accesos a fuentes/métodos.
+SEER, USCS, ECIS y Cancer Today documentan fuentes, métodos o precauciones de interpretación.
 
-**Aplicación potencial:** cada indicador debe tener una explicación metodológica accesible.
+Fuentes: `SRC-SEER-001`, `SRC-CDC-003`, `SRC-ECIS-002`, `SRC-IARC-001`.
 
-### 4. Naturaleza del dato
+### 4. Estado y naturaleza del dato
 
-ECIS distingue explícitamente observado, estimado y proyección. SEER también diferencia estadísticas preliminares en su versión actual.
+ECIS diferencia históricos de estimaciones/proyecciones y el Anuario cubano marca su publicación revisada como preliminar.
 
-**Aplicación potencial:** el estado del dato debe formar parte del resultado.
+Fuentes: `SRC-ECIS-001`, `SRC-ECIS-002`, `SRC-CUBA-AES-2024`.
 
-### 5. Política para datos pequeños
+### 5. Control sobre pocos casos
 
-USCS tiene reglas explícitas de supresión por estabilidad y confidencialidad.
+USCS documenta explícitamente cómo la baja frecuencia afecta estabilidad y confidencialidad. Esto obliga a investigar una política equivalente del RNC, no a copiar el umbral estadounidense.
 
-**Aplicación potencial:** el RNC necesita su propia política, que todavía debe definirse con especialistas.
+Fuente: `SRC-CDC-001`.
 
-### 6. Usabilidad basada en tareas
+### 6. Evaluación de usuarios
 
-Missouri demuestra que una herramienta puede tener buena efectividad y al mismo tiempo baja satisfacción; además, refinó la herramienta y volvió a medir.
+Missouri y la literatura reciente sobre dashboards muestran que funcionalidad técnica y utilidad no son sinónimos. La evaluación debe usar tareas reales y, cuando corresponda, iterar el diseño.
 
-El estudio de evaluación de un sistema de registro de cáncer encontró 114 problemas de usabilidad, muchos relacionados con que el usuario no sabía qué hacer, no relacionaba sus objetivos con los controles o no entendía el proceso.
+Fuentes: `SRC-MO-001`, `SRC-MO-002`, `SRC-DASH-US-2025`.
 
-**Aplicación potencial:** probar tareas reales y proporcionar guía y retroalimentación.
+### 7. Calidad como parte del sistema
 
-### 7. Separar difusión de gestión de calidad
+IARC identifica comparabilidad, validez, oportunidad y completitud. Colorado añade la idea de monitorizar calidad internamente, no solo publicar resultados.
 
-Colorado desarrolló herramientas internas para completitud y oportunidad aparte de los dashboards públicos.
+Fuentes: `SRC-IARC-QC-001`, `SRC-CO-001`.
 
-**Aplicación potencial:** el futuro panel administrativo no debe tratarse como una simple copia de la consulta pública.
+### 8. El portal no es todo el ecosistema
 
-### 8. Publicación reproducible
+CanReg5 recuerda que un registro incluye entrada, consistencia, control de calidad, análisis, migración e interoperabilidad además de publicación.
 
-North Carolina demuestra una estrategia de publicación que se regenera a partir de scripts cuando los datos cambian.
+Fuente: `SRC-IARC-CANREG5-2026`.
 
-**Aplicación potencial:** el proceso de actualización debe ser reproducible y auditable.
+## Patrones que debemos evitar
 
-### 9. El benchmark internacional no sustituye al negocio cubano
+- copiar un diseño externo sin saber qué problema resuelve;
+- ocultar la metodología detrás de una cifra;
+- tratar como iguales datos observados, preliminares, estimados y proyectados;
+- mostrar resultados de pocos casos sin una política explícita;
+- validar solo satisfacción y no capacidad de resolver tareas;
+- dejar accesibilidad para el final;
+- publicar sin conocer el retraso y la fecha de actualización;
+- asumir que el método estadístico extranjero es el del RNC.
 
-La documentación histórica del RNC cubano muestra sus propios procesos y estructuras. Por ejemplo, publicaciones del RNC describen validación, codificación, detección de duplicidades y generación automática de tablas, tasas y tendencias; IARC también documenta aspectos del registro de Villa Clara dentro del RNC.
+## Conclusión para Prácticas II
 
-**Aplicación potencial:** las reglas cubanas tienen prioridad cuando entren en conflicto con patrones externos.
+El benchmark debe servir para construir requisitos y decisiones justificadas. No debe convertirse en una colección de capturas o descripciones de sitios.
 
-## Primer catálogo de éxitos a perseguir
+La salida útil de esta fase es:
 
-- resultados estadísticamente interpretables;
-- filtros alineados con preguntas reales;
-- tabla y gráfico coherentes;
-- metodología visible;
-- exportación reproducible;
-- estado del dato visible;
-- política de pequeños conteos definida;
-- accesibilidad incorporada desde diseño;
-- pruebas de usabilidad antes y después de cambios;
-- proceso de actualización reproducible;
-- separación entre consulta pública y gestión interna.
+`problema del negocio → evidencia externa → patrón observado → riesgo → propuesta → pregunta al RNC`.
 
-## Primer catálogo de fracasos a evitar
+## Próximo bloque prioritario
 
-- usar el diseño como criterio principal de calidad;
-- esconder metodología;
-- mostrar solo gráficos;
-- mezclar estimaciones y datos observados;
-- permitir combinaciones de filtros ambiguas;
-- publicar tasas pequeñas sin una política epidemiológica/confidencial;
-- considerar que la tarea terminada implica satisfacción;
-- dejar la accesibilidad para el final;
-- depender de procesos manuales de actualización;
-- copiar reglas extranjeras como si fueran reglas del RNC.
+La siguiente investigación debe centrarse menos en añadir portales y más en completar el negocio estadístico:
 
-## Fuentes principales
-
-- `SRC-SEER-002`
-- `SRC-IARC-001`
-- `SRC-ECIS-001`
-- `SRC-CDC-001`
-- `SRC-NC-001`
-- `SRC-CO-001`
-- `SRC-MO-001`
-- `SRC-MO-002`
-- `SRC-CALI-001`
-- `SRC-UX-001`
-- `SRC-IARC-CUBA-001`
-- `SRC-RNC-003`
+1. definición de caso;
+2. clasificación y codificación;
+3. grupos de edad;
+4. población estándar;
+5. métodos de ajuste;
+6. intervalos;
+7. pocos casos/confidencialidad;
+8. calidad y oportunidad;
+9. preguntas reales de usuarios.

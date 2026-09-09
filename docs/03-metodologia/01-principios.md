@@ -1,30 +1,43 @@
-# Principios del motor epidemiológico
+# Principios metodológicos
 
-Estado: EVIDENCIA + PENDIENTE
+Estado: EVIDENCIA + PENDIENTE DE VALIDACIÓN
+Corte: 2026-09-09
 
-## Componentes definidos por el proyecto
+## Lo que exige el proyecto
 
-El Anexo A y la Propuesta establecen:
+El Anexo y la Propuesta establecen tasas crudas, específicas por edad y ajustadas por métodos directo e indirecto, además de intervalos de confianza. Fuentes: `SRC-RNC-001`, `SRC-RNC-002`.
 
-- tasas crudas;
-- tasas específicas por edad;
-- tasas ajustadas por método directo;
-- tasas ajustadas por método indirecto;
-- intervalos de confianza usando Poisson y aproximación normal.
+## Evidencia cubana disponible
 
-Fuentes: `SRC-RNC-001`, `SRC-RNC-002`.
+El Anuario Estadístico de Salud 2024 muestra tasas por 100 000 y tasas ajustadas por edad a la población estándar mundial por 100 000 y marca los datos revisados como preliminares. Fuente: `SRC-CUBA-AES-2024`.
 
-## Regla
+## Principios que no deben romperse
 
-Antes de implementar fórmulas se debe documentar para cada indicador:
+1. Conocer siempre el numerador y el denominador.
+2. Conocer la unidad de la tasa.
+3. Conocer el periodo de referencia.
+4. Conocer la población estándar cuando existe ajuste.
+5. Mantener alineados los grupos de edad entre casos, población y estándar.
+6. Identificar el estado del dato.
+7. Poder reproducir el cálculo a partir de entradas y parámetros.
+8. Validar fórmulas y resultados con valores de referencia antes de publicar.
 
-1. definición;
-2. fórmula;
-3. unidades y constante de presentación;
-4. entradas necesarias;
-5. supuestos;
-6. tratamiento de ceros y casos pequeños;
-7. tratamiento de datos faltantes;
-8. política de redondeo;
-9. intervalo de confianza;
-10. fuente y validación del RNC.
+## Población estándar
+
+Ver `02-poblacion-estandar-y-comparabilidad.md`.
+
+## Intervalos
+
+CDC utiliza un marco Poisson y documenta intervalos de 95 %. Esto es evidencia externa, no una especificación definitiva del RNC. Fuente: `SRC-CDC-CI-2026`.
+
+## Pendientes
+
+La primera reunión debe cerrar especialmente:
+
+- grupos de edad;
+- población estándar y referencia exacta;
+- fórmula del ajuste directo;
+- fórmula del ajuste indirecto;
+- tratamiento de pocos casos;
+- método y nivel de confianza aceptados;
+- criterios de validación de resultados.

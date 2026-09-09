@@ -1,13 +1,13 @@
-# UX/UI, visualización y accesibilidad
+# UX/UI, accesibilidad y visualización
 
-Analizar patrones útiles y problemas documentados en sistemas reales.
+La interfaz se investigará desde problemas reales de usuarios, no solo desde preferencias visuales.
 
-Cada hallazgo debe indicar:
+## Evidencia disponible
 
-- problema u oportunidad;
-- evidencia observable o medida;
-- contexto del sistema estudiado;
-- impacto esperado;
-- posible aplicación al RNC;
-- fuente;
-- si requiere validación con usuarios del RNC.
+- `01-lecciones.md`
+- `02-evidencia-externa.md`
+- `03-metricas-evaluacion.md`
+
+La literatura de registros y dashboards muestra que usabilidad y utilidad deben evaluarse por separado y que los rediseños deben poder justificarse mediante tareas y métricas.
+
+Fuentes: `SRC-UX-001`, `SRC-MO-001`, `SRC-MO-002`, `SRC-DASH-US-2025`.

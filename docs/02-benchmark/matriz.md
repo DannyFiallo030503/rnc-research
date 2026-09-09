@@ -3,28 +3,23 @@
 Estado: EVIDENCIA + PROPUESTA
 Corte: 2026-09-09
 
-Los valores describen capacidades documentadas, no una puntuación absoluta de calidad.
+Los valores describen capacidades o hallazgos documentados. No constituyen una puntuación absoluta de calidad.
 
-| Sistema | Consulta multidimensional | Tablas | Gráficos | Mapas | Descarga | Metodología visible | Estado del dato | Evidencia de usabilidad | Calidad / operación | Lección principal |
-|---|---|---|---|---|---|---|---|---|---|---|
-| SEER*Explorer | Sí | Sí | Sí | No es su principal enfoque | Sí | Sí | Sí, incluye preliminares | Feedback continuo; evidencia complementaria | Documentación estadística | Consulta + tabla + gráfico + descarga |
-| Cancer Today | Sí | Sí en vistas | Sí | Sí | La plataforma ofrece salidas y herramientas según vista | Sí, fuentes y métodos | Sí, versión GLOBOCAN | No comparable a un estudio específico aquí | Metodología internacional | Comparación y exploración visual |
-| ECIS | Sí | Según estudio | Sí | Parcial según vista | Según estudio | Sí | Sí: observado/estimado/proyectado | No estudiada aquí | Documentación de fuentes | Naturaleza del dato visible |
-| USCS | Sí | Sí | Sí | Sí | Sí | Sí | Sí, advertencias y preliminares | No estudiada aquí | Supresión + criterios de calidad | Interpretación + confidencialidad |
-| North Carolina | Enfoque acotado | Sí/implícito | Sí | Sí | Publicación web | Documento del proceso | Preliminar en ejemplo documentado | No es el foco | Generación reproducible | Publicación estática reproducible |
-| Colorado | Sí según dashboard | Sí | Sí | Según dashboard | Según herramienta | Sí en documentación | No es el foco del caso | No es el foco principal | Completitud y oportunidad internas | Producto público + calidad interna |
-| Missouri | Sí para las tareas de mapa | Sí/implícito | Sí | Sí | Según informe | La prueba contextualiza métricas | No es el foco | Sí, dos rondas | No es el foco | Evaluar y refinar |
-| Cali | Sí, por analítica | Sí | Sí | Sí | Según implementación | Documentada en tesis | No es el foco principal | Sí, evaluación del aplicativo | Muestra una capa semántica | Adaptar analíticas por perfil |
+| Sistema / estudio | Consulta multidimensional | Tablas | Gráficos | Mapas | Descarga/publicación | Metodología / contexto | Estado del dato | Usabilidad / utilidad | Calidad / operación | Lección |
+|---|---|---|---|---|---|---|---|---|---|
+| SEER*Explorer | Sí | Sí | Sí | Secundario | Sí | Fuerte | Sí, preliminares | Evidencia de feedback y documentación | Estadística documentada | Explorar → comparar → verificar → descargar |
+| Cancer Today | Sí | Sí | Sí | Sí | Sí según vista | Fuentes y métodos | Versión GLOBOCAN explícita | No es foco de la ficha | Metodología internacional | Comparación visual multidimensional |
+| ECIS | Sí | Según vista | Sí | Parcial | Según vista | Fuentes y métodos | Históricos / estimaciones / proyecciones | No estudiada aquí | Agrupación de fuentes | Mostrar naturaleza del dato |
+| USCS | Sí | Sí | Sí | Sí | Sí | Técnico y muy documentado | Preliminares y advertencias | No es foco de la ficha | Supresión, CI, retrasos | Interpretabilidad + confidencialidad |
+| CanReg5 | No es portal público | Sí | Análisis | No es foco | Importación / exportación | Operación del registro | Depende del registro | No es foco | Entrada, consistencia, QC, migración | El portal depende de un ecosistema de datos |
+| North Carolina | Acotada | Sí | Sí | Sí | Web reproducible | Proceso documentado | Puede manejar preliminares | No es foco | Generación por scripts | Migrar desde PDF sin depender de un servidor pesado |
+| Colorado | Sí según dashboard | Sí | Sí | Según dashboard | Sí | Documentación de producto | No es foco | No es foco principal | Completitud y oportunidad internas | Separar publicación de monitoreo interno |
+| Missouri | Sí para tareas cartográficas | Sí/implícito | Sí | Sí | Según informe | Evaluación contextual | No es foco | Dos rondas + rediseño | No es foco | Medir → rediseñar → medir |
+| Cali | Sí | Sí | Sí | Sí | Según implementación | Tesis documentada | No es foco | Evaluación de aplicativo | Arquitectura + perfiles | Antecedente cercano al RNC |
+| Dashboards públicos 2025 | Variable | Variable | Sí | Variable | Variable | Criterios de evaluación | Variable | 210 dashboards evaluados | No universal | Medir usabilidad y utilidad separadamente |
 
-## Lectura correcta
+## Lectura
 
-No existe un único sistema que deba copiarse. Cada uno aporta evidencia distinta:
+No existe un modelo único que deba copiarse.
 
-- **SEER:** diseño de exploración estadística.
-- **Cancer Today:** exploración y comparación multidimensional.
-- **ECIS:** distinción entre naturaleza del dato.
-- **USCS:** documentación, descargas y control de confidencialidad/estabilidad.
-- **North Carolina:** automatización de publicación con infraestructura mínima.
-- **Colorado:** separación entre producto público y control interno de calidad.
-- **Missouri:** pruebas de usabilidad iterativas.
-- **Cali:** antecedente cercano de arquitectura y analíticas para un registro poblacional.
+El resultado del benchmark es un conjunto de patrones y riesgos que deben convertirse en propuestas y luego validarse con el RNC.

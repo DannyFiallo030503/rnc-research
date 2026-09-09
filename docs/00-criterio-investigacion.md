@@ -1,58 +1,89 @@
 # Criterio de investigación del repositorio
 
 Estado: CONFIRMADO COMO MÉTODO DEL REPOSITORIO
+Corte: 2026-09-09
 
-## Propósito
+## Situación actual
 
-Investigar el dominio y los sistemas existentes antes de convertir hallazgos en requisitos del RNC.
+No se ha realizado la primera reunión con el RNC. La investigación actual busca construir conocimiento del negocio y evidencia previa, no cerrar requisitos definitivos.
 
 ## Jerarquía de evidencia
 
-1. Documentación vigente y oficial del RNC de Cuba.
-2. Normativa y documentación oficial cubana aplicable.
-3. Publicaciones del propio RNC y organismos oficiales cubanos.
+1. Procedimientos y documentación vigente del RNC de Cuba.
+2. Normativa oficial cubana aplicable.
+3. Publicaciones oficiales del RNC, MINSAP y organismos cubanos.
 4. IARC/WHO y estándares internacionales.
-5. Documentación oficial de registros de otros países.
+5. Documentación oficial de otros registros.
 6. Artículos científicos y tesis.
-7. Prácticas de implementación y experiencias técnicas.
+7. Experiencias técnicas de implementación.
 
-## Tipos de conclusión
+## Estados de conocimiento
 
 ### CONFIRMADO
 
-Una regla o hecho está directamente respaldado por documentación del RNC o una decisión oficial del proyecto.
+Respaldado por documento del proyecto, fuente oficial cubana vigente o decisión explícita del RNC/proyecto.
 
 ### EVIDENCIA
 
-Existe respaldo externo, pero todavía hay que decidir si aplica al RNC.
+Respaldado por fuentes externas de buena calidad, pero todavía no es una regla cubana.
 
 ### PROPUESTA
 
-El equipo considera conveniente una solución, pero todavía no es una regla del negocio.
+Recomendación que puede orientar el diseño, pendiente de aceptación.
 
 ### PENDIENTE
 
-La respuesta requiere la primera reunión u otra fuente aún no disponible.
+No existe todavía información suficiente.
+
+### HISTÓRICO
+
+Evidencia cubana anterior cuya vigencia actual debe verificarse.
 
 ### DESCARTADO
 
-La alternativa fue evaluada y existe evidencia para no utilizarla.
+Alternativa evaluada con razón documentada para no utilizarla.
 
 ## Regla de trazabilidad
 
-Una afirmación importante debe tener una fuente identificable.
+Cada afirmación relevante debe tener una fuente o indicar claramente que es inferencia/propuesta.
 
-Una decisión debe indicar la evidencia que la sustenta.
+Cada fuente recibe `SRC-*`.
 
-Un requisito debe poder rastrearse hacia una necesidad del negocio, una regla o una decisión.
+Cada evidencia recibe `EVD-*`.
+
+Cada regla de negocio recibe `RN-*` cuando sea confirmada.
+
+Cada requisito recibe `REQ-*` cuando exista base suficiente.
+
+Cada decisión recibe `DEC-*`.
+
+Cada pregunta abierta recibe `Q-*`.
 
 ## Regla de comparación
 
-Una funcionalidad externa no se incorpora por el simple hecho de existir. Debemos poder responder:
+Una funcionalidad externa nunca se convierte automáticamente en requisito.
 
-1. ¿Qué problema resuelve?
-2. ¿Qué evidencia demuestra que lo resuelve?
-3. ¿En qué contexto funcionó?
-4. ¿Es comparable con el RNC?
-5. ¿Qué riesgo tendría copiarla?
-6. ¿Qué adaptación necesita?
+Para usar una práctica como propuesta debemos responder:
+
+1. qué problema resuelve;
+2. qué evidencia demuestra el beneficio;
+3. en qué contexto fue evaluada;
+4. qué parte es comparable con Cuba;
+5. qué riesgos tiene copiarla;
+6. qué adaptación requiere.
+
+## Regla de investigación actual
+
+No ampliar el benchmark solo para aumentar el número de sistemas estudiados. Priorizar evidencia que cierre una pregunta pendiente o contraste una hipótesis.
+
+## Flujo de conocimiento
+
+`fuente → evidencia → interpretación → propuesta → validación RNC → requisito/regla → implementación → prueba`
+
+## Instrucción para futuras IA
+
+Leer primero `PROJECT_CONTEXT.md`, `docs/00-estado-investigacion.md`, `docs/evidence-map.md` y `sources/catalogo.md`.
+
+No crear estructuras paralelas.
+
+No repetir investigaciones ya cubiertas sin señalar qué nueva pregunta se intenta resolver.

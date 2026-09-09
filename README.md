@@ -2,47 +2,63 @@
 
 Repositorio de conocimiento, investigación y decisiones del proyecto de Prácticas II y Trabajo de Diploma.
 
-## Propósito
+## Empezar aquí
 
-Este repositorio concentra la evidencia que sustenta el análisis del negocio, la definición de requisitos, las decisiones epidemiológicas, UX/UI y las decisiones técnicas del proyecto.
+Leer primero:
 
-La regla principal es: **ninguna decisión importante debe quedar sin evidencia o justificación**.
+1. `PROJECT_CONTEXT.md`
+2. `docs/00-estado-investigacion.md`
+3. `docs/00-criterio-investigacion.md`
+4. `docs/evidence-map.md`
+5. `sources/catalogo.md`
 
-## Cómo navegar
+## Situación actual
 
-- `docs/01-negocio/`: conocimiento del dominio y funcionamiento del registro.
-- `docs/02-benchmark/`: sistemas reales, publicaciones y análisis comparativo.
-- `docs/03-metodologia/`: tasas, estandarización, intervalos de confianza y conceptos epidemiológicos.
-- `docs/04-ux-ui/`: accesibilidad, usabilidad, visualización y patrones de interacción.
-- `docs/05-requisitos/`: requisitos funcionales, no funcionales, reglas y preguntas abiertas.
-- `docs/06-arquitectura/`: modelo de datos, arquitectura y artefactos de ingeniería.
-- `docs/07-decisiones/`: decisiones registradas con contexto, alternativas y evidencia.
-- `docs/08-reuniones/`: acuerdos y dudas obtenidos con el RNC y tutores.
-- `sources/`: catálogo de fuentes y, cuando corresponda, copias permitidas de documentos originales.
-- `data/`: datos auxiliares o conjuntos de datos derivados necesarios para reproducir análisis.
+El proyecto todavía no ha tenido su primera reunión con el RNC. Estamos en una fase de conocimiento del negocio y evidencia previa.
 
-## Regla de evidencia
+La investigación actual busca conocer el negocio estadístico de los registros de cáncer, estudiar sistemas reales, identificar patrones de éxito y fracaso y preparar preguntas para validar con los especialistas.
 
-Cada fuente recibe un identificador estable, por ejemplo `SRC-RNC-001`, `SRC-IARC-001`, `SRC-SEER-001`.
+## Estructura
 
-Cada afirmación relevante debe poder apuntar a una fuente usando ese identificador.
+- `docs/01-negocio/`: dominio y funcionamiento del registro.
+- `docs/02-benchmark/`: sistemas y publicaciones externas.
+- `docs/03-metodologia/`: fundamentos estadísticos y epidemiológicos.
+- `docs/04-ux-ui/`: usabilidad, accesibilidad y visualización.
+- `docs/05-requisitos/`: preguntas, requisitos y reglas futuras.
+- `docs/06-arquitectura/`: diseño técnico posterior.
+- `docs/07-decisiones/`: decisiones justificadas.
+- `docs/08-reuniones/`: información confirmada por reuniones.
+- `sources/`: fuentes y referencias.
+- `data/`: datos auxiliares reproducibles.
 
-Cada decisión relevante recibe un identificador `DEC-001` y debe indicar:
+## Principio de trazabilidad
 
-1. qué se decidió;
-2. por qué;
-3. qué alternativas se evaluaron;
-4. qué evidencia la respalda;
-5. qué queda pendiente de validación.
+Ninguna decisión importante debe quedar sin evidencia o justificación.
 
-## Estado de conocimiento
+Una fuente recibe `SRC-*`.
 
-Usar estas etiquetas dentro de los documentos:
+Una evidencia recibe `EVD-*`.
 
-- **CONFIRMADO**: respaldado por fuente oficial, evidencia primaria o decisión explícita del RNC.
-- **EVIDENCIA**: respaldado por literatura o sistemas externos, pero no necesariamente aplicable al RNC.
-- **PROPUESTA**: recomendación del equipo todavía no aprobada.
-- **PENDIENTE**: falta confirmación o información.
-- **DESCARTADO**: alternativa evaluada que no se utilizará, con motivo documentado.
+Una pregunta recibe `Q-*`.
 
-Nunca convertir una hipótesis o una práctica de otro registro en una regla del RNC sin marcarla como tal.
+Una regla confirmada recibe `RN-*`.
+
+Un requisito confirmado recibe `REQ-*`.
+
+Una decisión recibe `DEC-*`.
+
+## Regla epistemológica
+
+Una práctica de SEER, GLOBOCAN, ECIS, CDC, otro registro o una publicación científica es evidencia externa, no una regla del RNC.
+
+## Flujo
+
+`fuente → evidencia → interpretación → propuesta → validación RNC → requisito/regla → implementación → prueba`
+
+## Cómo continuar en otro chat o con otra IA
+
+No empezar de cero. Leer `PROJECT_CONTEXT.md` y continuar desde `docs/00-estado-investigacion.md`.
+
+Antes de añadir una fuente, revisar `sources/catalogo.md`.
+
+Antes de añadir una afirmación, revisar `docs/evidence-map.md` para evitar duplicados.
