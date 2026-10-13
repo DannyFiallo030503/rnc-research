@@ -14,6 +14,8 @@ El objetivo no es recopilar sitios por cantidad. Cada ficha debe responder qué 
 - `missouri.md`
 - `cali.md`
 - `cardo.md`
+- `2025-scoping-review.md`
+- `swincare.md`
 - `2025-dashboard-evaluation.md`
 - `matriz.md`
 

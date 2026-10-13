@@ -1,7 +1,7 @@
 # Colorado Central Cancer Registry
 
 Estado: EVIDENCIA
-Última revisión: 2026-09-09
+Última revisión: 2026-10-04
 
 ## Caso de estudio
 
@@ -48,3 +48,4 @@ No diseñar el sistema únicamente alrededor de la consulta pública. Mantener s
 ## Fuente
 
 - `SRC-CO-001` — Colorado Central Cancer Registry. NPCR 2024 Success Story: Leveraging Cancer Data Through Visualization. https://www.cancerregistryeducation.org/Files/Org/f3f3d382a7a242549a9999654105a63b/Site/2024-ColoradoPoster.pdf
+- `SRC-CO-002` — Vanderhoff A, Vu K. Leveraging Cancer Data Through Visualization. Journal of Registry Management, 2025. https://pmc.ncbi.nlm.nih.gov/articles/PMC12742403/

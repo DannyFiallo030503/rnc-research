@@ -1,16 +1,18 @@
 # Evaluación de dashboards de salud pública: evidencia 2025
 
 Estado: EVIDENCIA
-Corte: 2026-09-09
+Corte: 2026-10-04
 
 ## Fuente
 
-Un estudio publicado en 2025 evaluó 210 dashboards de departamentos de salud estatales de EE. UU. y separó dos constructos:
+Un estudio publicado en 2025 evaluó 210 dashboards de agencias de salud federales y estatales de EE. UU. (58 federales y 152 estatales) y separó dos constructos:
 
 - usabilidad;
 - utilidad.
 
 Fuente: `SRC-DASH-US-2025`.
+
+La muestra corresponde a paneles observados en 2024–2025 y no a todos los paneles de salud pública. El estudio es una evaluación heurística de características observables; no demuestra por sí mismo cómo utilizaría el público cubano una interfaz concreta.
 
 ## Dimensiones de evaluación observadas
 

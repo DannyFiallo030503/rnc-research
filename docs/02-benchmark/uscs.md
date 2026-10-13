@@ -1,7 +1,7 @@
 # U.S. Cancer Statistics
 
 Estado: EVIDENCIA
-Última revisión: 2026-09-09
+Última revisión: 2026-10-04
 
 ## Identificación
 
@@ -26,6 +26,8 @@ La herramienta actual incluye:
 
 Existe además una sección específica para descargar tablas preanalizadas.
 
+En la edición consultada, la herramienta informa incidencia observada hasta 2023 y mortalidad hasta 2024. Estos son años de datos diferentes de la fecha de actualización del portal (`SRC-CDC-002`).
+
 ## Lección de diseño
 
 Las descargas forman parte del ecosistema de análisis, no son un añadido aislado. CDC mantiene tablas históricas descargables y documentación específica para interpretar el conjunto de datos.
@@ -34,7 +36,7 @@ Las descargas forman parte del ecosistema de análisis, no son un añadido aisla
 
 CDC publica una política explícita: en las tablas y figuras de U.S. Cancer Statistics no se muestran estadísticas calculadas con conteos inferiores a 16. El motivo declarado combina estabilidad estadística y confidencialidad.
 
-CDC también documenta la supresión complementaria para evitar que un usuario pueda deducir una celda suprimida a partir de otras celdas y un total.
+CDC documenta la supresión complementaria en las notas de la **base de uso público**, para evitar que un usuario pueda deducir una celda suprimida a partir de otras celdas y un total (`SRC-CDC-PUBLIC-CAUTION-2026`). La página técnica del visualizador consultada no describe esa regla en detalle.
 
 ### Importante para el RNC
 
@@ -54,7 +56,8 @@ La página técnica de 2026 incluye advertencias de interpretación y una guía 
 ## Fuentes
 
 - `SRC-CDC-001` — CDC. Suppression of Rates and Counts. https://www.cdc.gov/united-states-cancer-statistics/technical-notes/suppression.html
-- `SRC-CDC-002` — CDC. U.S. Cancer Statistics Data Visualizations. https://gis.cdc.gov/Cancer/USCS/
+- `SRC-CDC-002` — CDC. U.S. Cancer Statistics Data Visualizations. https://www.cdc.gov/united-states-cancer-statistics/dataviz/index.html
 - `SRC-CDC-003` — CDC. Data Visualizations Tool Technical Notes. https://www.cdc.gov/united-states-cancer-statistics/technical-notes/index.html
 - `SRC-CDC-004` — CDC. Download Data Tables. https://www.cdc.gov/united-states-cancer-statistics/dataviz/data-tables.html
 - `SRC-CDC-005` — CDC. U.S. Cancer Statistics Public Use Database. https://cdc.gov/united-states-cancer-statistics/public-use/index.html
+- `SRC-CDC-PUBLIC-CAUTION-2026` — CDC. Cautionary Notes. https://www.cdc.gov/united-states-cancer-statistics/public-use/cautionary-notes.html

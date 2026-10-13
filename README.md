@@ -9,12 +9,22 @@ Leer primero:
 1. `PROJECT_CONTEXT.md`
 2. `docs/00-estado-investigacion.md`
 3. `docs/00-criterio-investigacion.md`
-4. `docs/evidence-map.md`
-5. `sources/catalogo.md`
+4. `docs/01-negocio/06-manual-procedimientos-2024.md`
+5. `docs/05-requisitos/linea-base-practicas-ii.md` — alcance/requisitos y entregables trazables al Anexo A.
+6. `docs/evidence-map.md`
+7. `sources/catalogo.md`
+8. `docs/00-auditoria-documental-2026-10-04.md` — alcance de la revisión, correcciones y fuentes que aún requieren validación.
+9. `docs/09-informe/borrador-informe-practicas-ii-rnc.md` — borrador académico editable; también disponible como DOCX.
+10. `docs/06-arquitectura/plan-operativo-diagramas-staruml.md` — instrucciones de dibujo en StarUML.
+11. `docs/06-arquitectura/metodo-y-clases-staruml.md` — método de modelado, clases completas, relaciones y trazabilidad entre diagramas.
+12. `docs/03-metodologia/03-investigacion-fuentes-cubanas-privacidad-2026-10-06.md` — investigación de anuarios, población ONEI y normas de protección de datos.
+13. `docs/03-metodologia/04-ci5-xii-estandarizacion-edad.md` — síntesis y cotejo del capítulo CI5 XII de estandarización por edad transcrito en `MasDatos.txt`.
+13. `docs/05-requisitos/detalles-pendientes-para-requisitos-y-diseno.md` — guion actualizado para las preguntas restantes; Word fechado disponible en la misma carpeta.
+14. `docs/06-arquitectura/arquitectura-evolutiva-rnc.md` — propuesta modular que localiza cambios futuros de fuente, datos, método y divulgación.
 
 ## Situación actual
 
-El proyecto todavía no ha tenido su primera reunión con el RNC. Estamos en una fase de conocimiento del negocio y evidencia previa.
+El conocimiento documental incluye el Manual de Procedimientos RNC v. VII (2024), el Anuario de Salud 2024, el Anuario Demográfico ONEI 2024 y la normativa cubana de datos personales. Yinet aclaró los grupos de edad y la fuente de población (`SRC-RNC-005`). El estudiante precisó que un sistema interno entrega archivos ya definitivos, que el RNC no usa actualmente intervalos de confianza y que la política de confidencialidad del portal debe proponerse (`SRC-RNC-006`). Una aclaración posterior (`SRC-RNC-007`) fijó estándares internacionales para los indicadores de cáncer y población cubana ONEI como denominador; IARC/CI5 documenta los pesos mundiales usados como referencia para ASR(W). La primera reunión formal y otras validaciones permanecen pendientes. Consultar el mapa de preguntas para los detalles abiertos.
 
 La investigación actual busca conocer el negocio estadístico de los registros de cáncer, estudiar sistemas reales, identificar patrones de éxito y fracaso y preparar preguntas para validar con los especialistas.
 

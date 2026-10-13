@@ -1,7 +1,7 @@
 # SEER / SEER*Explorer
 
 Estado: EVIDENCIA
-Última revisión: 2026-09-09
+Última revisión: 2026-10-04
 
 ## Identificación
 
@@ -42,6 +42,8 @@ Los enlaces a resultados facilitan reproducibilidad y comunicación entre usuari
 
 SEER mantiene documentación separada sobre definiciones de incidencia y poblaciones estándar. Esto muestra que el cálculo necesita contexto metodológico explícito.
 
+Un artículo del propio programa describe el paso de tablas estáticas a SEER*Explorer y pruebas con perfiles variados, incluidas observaciones de navegación y seguimiento ocular (`SRC-SEER-USABILITY-2024`). Es evidencia histórica del proceso de diseño; las funciones actuales se comprueban en la página oficial.
+
 ## Qué debemos adoptar como patrón
 
 **PROPUESTA**
@@ -77,3 +79,4 @@ La versión oficial consultada en septiembre de 2026 declara explícitamente los
 - `SRC-SEER-002` — NCI/SEER. SEER*Explorer. https://seer.cancer.gov/statistics-network/explorer/overview.html
 - `SRC-SEER-003` — NCI/SEER. Standard Populations. https://seer.cancer.gov/stdpopulations/
 - `SRC-SEER-004` — NCI/SEER. Data Archive. https://seer.cancer.gov/statistics-network/explorer/archive.html
+- `SRC-SEER-USABILITY-2024` — NCI/SEER. Desarrollo y evaluación de SEER*Explorer. https://pmc.ncbi.nlm.nih.gov/articles/PMC11300012/

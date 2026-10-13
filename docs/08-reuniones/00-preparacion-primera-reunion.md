@@ -1,7 +1,7 @@
 # Preparación de la primera reunión con el RNC
 
-Estado: PENDIENTE
-Corte: 2026-09-09
+Estado: PREPARADA; VALIDACIÓN CON ESPECIALISTAS PENDIENTE
+Corte: 2026-09-30
 
 ## Objetivo
 
@@ -25,7 +25,7 @@ Fuente: `SRC-CUBA-AES-2024`.
 
 ### Procedimiento del registro
 
-Existe un Manual de procedimientos de 2024 que, según su registro bibliográfico, cubre recolección, procesamiento, transmisión, almacenamiento, calidad y confidencialidad. Aún falta revisar el texto completo.
+Se revisó íntegramente el Manual de Procedimientos versión VII de 2024. Confirma definición de caso, captación/procesamiento, CIE-O-3 e ICCC-3, reglas de duplicados y múltiples primarios, indicadores de calidad, cuadros estadísticos y confidencialidad. Ver `01-negocio/06-manual-procedimientos-2024.md` para páginas, límites y respuestas por pregunta.
 
 Fuente: `SRC-RNC-003`.
 
@@ -33,20 +33,18 @@ Fuente: `SRC-RNC-003`.
 
 Ver `docs/05-requisitos/mapa-de-preguntas.md`.
 
-Prioridad máxima:
+Prioridad máxima: presentar lo que dice el manual y pedir confirmación de vigencia; concentrar la reunión en los vacíos:
 
-1. definición de caso;
-2. clasificación y versión de codificación;
-3. grupos de edad;
-4. población estándar;
-5. ajuste directo;
-6. ajuste indirecto;
-7. intervalos de confianza;
-8. pocos casos/confidencialidad;
-9. estado preliminar/consolidado;
-10. proceso de actualización;
-11. duplicados y múltiples primarios;
-12. necesidades reales de usuarios.
+1. reglas de creación y uso de agrupaciones de edad adicionales, y tabla/pesos de población estándar;
+2. fórmulas y ejemplos validados de tasas, ajustes directo e indirecto e intervalos;
+3. supresión de resultados agregados y protección contra inferencia;
+4. ciclo de estados preliminar/definitivo, correcciones e historial;
+5. nombre/versión del sistema automatizado, formatos e integración;
+6. calendario estadístico vigente;
+7. usuarios, tareas reales y nivel WCAG;
+8. confirmar que el Manual v. VII (2024) sigue vigente y cómo resolver posibles erratas/OCR.
+
+Yinet confirmó por escrito los grupos quinquenales clásicos de 0–4 a 85+, la necesidad de crear agrupaciones adicionales y la población denominadora ONEI por territorio, sexo y edad simple (`SRC-RNC-005`). Solicitar las series prometidas y precisar edición, años, formato y regla temporal (`Q-016`).
 
 ## Evidencia para llevar a la reunión
 
@@ -60,7 +58,7 @@ Conviene mostrar ejemplos y preguntar por la regla detrás de ellos:
 - dato preliminar;
 - clasificación de localizaciones;
 - posibles combinaciones de filtros;
-- ejemplo de una celda con pocos casos.
+- ejemplo de salida que requiera supresión y de combinaciones de filtros riesgosas.
 
 ## Resultado esperado
 

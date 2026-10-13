@@ -1,7 +1,7 @@
 # Criterio de investigación del repositorio
 
 Estado: CONFIRMADO COMO MÉTODO DEL REPOSITORIO
-Corte: 2026-09-09
+Corte: 2026-10-04
 
 ## Situación actual
 
@@ -58,6 +58,12 @@ Cada requisito recibe `REQ-*` cuando exista base suficiente.
 Cada decisión recibe `DEC-*`.
 
 Cada pregunta abierta recibe `Q-*`.
+
+## Actualidad y calidad bibliográfica
+
+La guía universitaria de abril de 2026 (`SRC-UNI-001`) pide referencias de calidad, completas y homogéneas; la mayor parte deben corresponder a los últimos cinco años y una parte significativa estar en inglés. Para sitios web se registran **fecha del contenido o actualización** y **fecha de consulta**, porque una consulta reciente no convierte una página antigua en evidencia reciente. Las fuentes anteriores a cinco años pueden mantenerse si son fundamentales o documentan antecedentes, con su carácter histórico explícito.
+
+Antes de usar una referencia técnica mutable, comprobar en el sitio primario la edición, el año de datos, la fecha de actualización y el enlace. Mantener separados año de publicación, año de observación y versión del producto. En el catálogo, «fecha de consulta» no sustituye los datos bibliográficos completos que se prepararán para el informe final.
 
 ## Regla de comparación
 

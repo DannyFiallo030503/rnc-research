@@ -1,11 +1,13 @@
 # IARC Global Cancer Observatory / Cancer Today
 
 Estado: EVIDENCIA
-Última revisión: 2026-09-09
+Última revisión: 2026-10-04
 
 ## Identificación
 
 Cancer Today es la interfaz de visualización del Global Cancer Observatory de IARC. La versión consultada declara datos GLOBOCAN 2024 con fecha 08-07-2026.
+
+El estudiante confirma que Global Cancer Observatory / Cancer Today es un referente explícito solicitado para el producto del RNC. Esto eleva la ficha a referencia principal del benchmark, pero no convierte sus funciones o metodología en requisitos cubanos.
 
 ## Qué permite hacer
 
@@ -62,12 +64,15 @@ La interfaz contempla, según la vista, escalas absolutas y de ranking y diferen
 - Habilitar comparaciones cuando tengan sentido epidemiológico.
 - Mostrar claramente la medida y unidad de cada visualización.
 - Mantener visible la fuente y metodología del indicador.
+- Empezar por la tarea pública y el modelo de exploración; justificar cada control y vista comparando beneficios, fricciones y accesibilidad en varios sistemas.
 
 ## Qué debemos evitar
 
 **PROPUESTA**
 
 No utilizar una visualización multidimensional solo porque sea visualmente atractiva. La cantidad de opciones de Cancer Today muestra también un riesgo: demasiados controles pueden aumentar la carga cognitiva si la interfaz no está guiada.
+
+El referente sirve como evidencia de diseño, no como prueba de que una propuesta propia sea superior. Esa afirmación deberá apoyarse en comparación explícita y evaluación de tareas con usuarios.
 
 ## Qué NO se debe importar como regla del RNC
 

@@ -1,7 +1,7 @@
 # ECIS — European Cancer Information System
 
 Estado: EVIDENCIA
-Última revisión: 2026-09-09
+Última revisión: 2026-10-04
 
 ## Identificación
 
@@ -42,7 +42,7 @@ Cada resultado relevante debería poder identificar:
 - periodo;
 - fuente;
 - método cuando sea necesario;
-- si es preliminar, observado o estimado.
+- si es observado o estimado y cuál es su estado de publicación. En el RNC, la consulta pública mostrará únicamente cortes definitivos (`REQ-F-011`).
 
 ## Qué debemos evitar
 

@@ -1,7 +1,7 @@
 # Conclusiones del benchmark
 
 Estado: EVIDENCIA + PROPUESTA
-Corte: 2026-09-09
+Corte: 2026-10-04
 
 ## Patrones que se repiten
 
@@ -45,7 +45,7 @@ Fuentes: `SRC-MO-001`, `SRC-MO-002`, `SRC-DASH-US-2025`.
 
 IARC identifica comparabilidad, validez, oportunidad y completitud. Colorado añade la idea de monitorizar calidad internamente, no solo publicar resultados.
 
-Fuentes: `SRC-IARC-QC-001`, `SRC-CO-001`.
+Fuentes: `SRC-IARC-QC-001`, `SRC-IARC-CI5XII-2024`, `SRC-CO-001`, `SRC-CO-002`.
 
 ### 8. El portal no es todo el ecosistema
 
@@ -66,7 +66,7 @@ Fuente: `SRC-IARC-CANREG5-2026`.
 
 ## Conclusión para Prácticas II
 
-El benchmark debe servir para construir requisitos y decisiones justificadas. No debe convertirse en una colección de capturas o descripciones de sitios.
+El estudiante confirma GCO/Cancer Today como referente explícito. El benchmark debe comparar ese producto y otros diseños exitosos junto con experiencias con fallos documentados; debe mostrar qué tarea resuelve cada patrón, qué evidencia tiene, qué falla/riesgo conserva y por qué se selecciona o descarta para el RNC. No basta con afirmar que la propuesta es "mejor": hace falta justificarla con evidencia y validarla mediante tareas.
 
 La salida útil de esta fase es:
 
@@ -76,12 +76,8 @@ La salida útil de esta fase es:
 
 La siguiente investigación debe centrarse menos en añadir portales y más en completar el negocio estadístico:
 
-1. definición de caso;
-2. clasificación y codificación;
-3. grupos de edad;
-4. población estándar;
-5. métodos de ajuste;
-6. intervalos;
-7. pocos casos/confidencialidad;
-8. calidad y oportunidad;
-9. preguntas reales de usuarios.
+1. reglas de agrupaciones de edad adicionales, recepción y regla temporal de denominadores ONEI, y pesos de población estándar;
+2. métodos de ajuste e intervalos;
+3. publicación pública de celdas pequeñas;
+4. calidad y oportunidad;
+5. tareas y necesidades reales de usuarios.
