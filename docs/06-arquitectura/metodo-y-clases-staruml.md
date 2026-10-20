@@ -1,6 +1,6 @@
 # Método de modelado y clases para los diagramas del RNC
 
-Estado: propuesta de diseño revisable, 2026-10-06. Base: `SRC-UNI-001`, `SRC-RNC-001` a `SRC-RNC-007`, [línea base de requisitos](../05-requisitos/linea-base-practicas-ii.md) y [arquitectura evolutiva](arquitectura-evolutiva-rnc.md). Este documento indica **qué dibujar** en StarUML y qué decisiones aún requieren datos del RNC.
+Estado: propuesta de diseño revisable, 2026-10-15. Base: `SRC-UNI-001`, `SRC-RNC-001` a `SRC-RNC-010`, `SRC-PRJ-001`, [línea base de requisitos](../05-requisitos/linea-base-practicas-ii.md) y [arquitectura evolutiva](arquitectura-evolutiva-rnc.md). Este documento indica **qué dibujar** en StarUML y qué decisiones aún requieren datos del RNC.
 
 ## Criterio académico comprobado
 
@@ -16,6 +16,8 @@ La guía local *Buenas prácticas para la escritura y defensa del Trabajo de Dip
 | 6 | `CD-01` clases de diseño y `CMP-01` componentes | ¿Quién asume cada responsabilidad y a través de qué contrato se comunican las partes? Agrupar por paquetes/capas. |
 | 7 | `ER-01` y `DEP-01` | ¿Qué datos se persisten y dónde corre la solución? Se concretan con plantilla de datos e infraestructura reales. |
 
+La dirección de producto requiere además representar autenticación y gestión de cuentas: añadir `CU-03` y `CD-04` como vistas objetivo, y mostrar en `ER-01` las entidades de identidad y registro de importaciones aunque el contrato de columnas clínicas siga pendiente. `DEP-01` permanece lógico hasta que RNC/CUJAE confirmen infraestructura.
+
 No forzar un patrón en todos los dibujos: casos de uso y actividades describen requisitos y procesos; los patrones de diseño se justifican principalmente en clases/secuencias, y los patrones arquitectónicos en componentes, paquetes y despliegue. Conservar los mismos nombres y operaciones entre vistas.
 
 El orden de la tabla organiza el trabajo, pero `SD-01` y `CD-01` se refinan juntos: al descubrir un mensaje se asigna una operación a la clase responsable; al cambiar una firma se corrige la secuencia. `CMP-01` se revisa contra ambas vistas.
@@ -26,7 +28,9 @@ Crear un **Class Diagram** en `02 Dominio`, nombre `DM-01 Conceptos estadístico
 
 | Concepto | Significado documentado | Atributos conceptuales seguros |
 |---|---|---|
-| `CorteDefinitivo` | Conjunto consultable internamente derivado de un archivo definitivo; la divulgación del resultado agregado se evalúa aparte. | `identificador`, `fuente`, `huella`, `año` por definir. |
+| `CorteDefinitivo` | Conjunto restringido derivado de un archivo definitivo; la divulgación del resultado agregado se evalúa aparte. | `identificador`, `fuente`, `huella`, `año` por definir. |
+| `TumorRegistrado` | Unidad comunicada: cada fila representa un tumor; requiere contrato/diccionario autorizado antes de definir claves físicas. | `referenciaTumor` restringida; dimensiones validadas. |
+| `PersonaRegistrada` | Persona vinculada a uno o varios tumores por una clave identificadora autorizada. | `referenciaPersona` restringida. |
 | `Territorio` | Cuba, provincia o municipio; las series ONEI se entregarán para esos niveles. | `nivel`, `nombre/código` por validar. |
 | `PoblacionONEI` | Denominador oficial por año, territorio, sexo y edad simple. | `año`, `sexo`, `edadSimple`, `cantidad`. |
 | `GrupoEdad` | Intervalo etario, incluido 0–4 y el abierto 85+. | `edadInicial`, `edadFinal` opcional. |
@@ -35,9 +39,9 @@ Crear un **Class Diagram** en `02 Dominio`, nombre `DM-01 Conceptos estadístico
 | `PesoEstandar` | Peso asignado a un quinquenio clásico de la estándar mundial. | `grupoEdad`, `peso` (entero). |
 | `LocalizacionCancer` | Dimensión de consulta; nomenclador y versión por confirmar. | `código`, `nombre` por validar. |
 
-Añadir `CorteDefinitivo` — `Territorio` mediante **Association** con nombre `abarca`; no fijar multiplicidades de esa relación antes de conocer el grano del corte. Añadir `PoblacionONEI` — `Territorio` con nombre `corresponde a`: en el extremo `Territorio` escribir `1`, en el extremo `PoblacionONEI` escribir `0..*`. Cada observación ONEI es de un territorio y un territorio tiene muchas observaciones a lo largo de años, edades y sexos. Añadir `AgrupacionEdad` — `GrupoEdad` como **Composition**, con `1` en `AgrupacionEdad` y `1..*` en `GrupoEdad`: en este modelo cada tramo pertenece a una definición de agrupación. Poner la nota `Bandas clásicas 0–4, 5–9, …, 85+; no se editan al crear una agrupación nueva` (`REQ-F-013`). Añadir `PoblacionEstandar` ◆— `PesoEstandar` como **Composition**, con `1` en el extremo `PoblacionEstandar` y `18` en el extremo `PesoEstandar`; cada peso refiere a uno de los 18 quinquenios clásicos y el total es 100 000 (`SRC-IARC-CI5-WORLD-2026`).
+Añadir `PersonaRegistrada` — `TumorRegistrado` con multiplicidades conceptuales `1` a `1..*` (una persona puede tener más de un tumor); la identidad se mantiene restringida y las claves concretas quedan pendientes de autorización y diccionario. Añadir `CorteDefinitivo` — `TumorRegistrado` como composición conceptual, no física. Añadir `CorteDefinitivo` — `Territorio` mediante **Association** con nombre `abarca`; no fijar multiplicidades de esa relación antes de conocer el grano del corte. Añadir `PoblacionONEI` — `Territorio` con nombre `corresponde a`: en el extremo `Territorio` escribir `1`, en el extremo `PoblacionONEI` escribir `0..*`. Cada observación ONEI es de un territorio y un territorio tiene muchas observaciones a lo largo de años, edades y sexos. Añadir `AgrupacionEdad` — `GrupoEdad` como **Composition**, con `1` en `AgrupacionEdad` y `1..*` en `GrupoEdad`: en este modelo cada tramo pertenece a una definición de agrupación. Poner la nota `Bandas clásicas 0–4, 5–9, …, 85+; se conservan; agrupaciones nuevas se versionan y requieren denominador compatible para tasas` (`REQ-F-013`). Añadir `PoblacionEstandar` ◆— `PesoEstandar` como **Composition**, con `1` en el extremo `PoblacionEstandar` y `18` en el extremo `PesoEstandar`; cada peso refiere a uno de los 18 quinquenios clásicos y el total es 100 000 (`SRC-IARC-CI5-WORLD-2026`).
 
-No añadir aún `Paciente`, `CasoTumor` ni `ConteoAgregadoPublicado`: el archivo entregado puede tener microdatos o agregados (`Q-017`). No unir `PoblacionEstandar` con `PoblacionONEI` como si fueran la misma fuente. La tabla mundial de pesos ya está documentada; falta comprobar con un resultado RNC que se aplica la misma edición, regla de redondeo y tratamiento de edades desconocidas (`Q-004`, `Q-005`).
+La unidad de fila (tumor) y la posibilidad de agrupar por persona están comunicadas por el estudiante (`SRC-RNC-010`), pero el diccionario, claves y autorización aún condicionan el modelo físico y el procesamiento real. Dibujar `TumorRegistrado` y `PersonaRegistrada` como conceptos, nunca sus identificadores o atributos clínicos. No unir `PoblacionEstandar` con `PoblacionONEI` como si fueran la misma fuente. La tabla mundial de pesos ya está documentada; falta comprobar con un resultado RNC que se aplica la misma edición, regla de redondeo y tratamiento de edades desconocidas (`Q-004`, `Q-005`).
 
 ## `CD-01` — clases de diseño de la consulta
 
@@ -139,13 +143,32 @@ Crear **Class Diagram** `CD-03 Diseño de la incorporación`, dentro de `06 Dise
 
 Colocar una **Note** junto al servicio: `Solo acepta origen declarado definitivo y contrato técnico compatible; registra huella, grano y capacidades. La falta de población ONEI limita tasas, no el conteo definitivo. El acceso y conservación del archivo esperan política RNC.` Si el dibujo queda denso, dividirlo en dos vistas del mismo modelo (`CD-03a Puertos de entrada` y `CD-03b Persistencia y cobertura`).
 
+## `CD-04` — identidad y gestión administrativa objetivo
+
+Crear un **Class Diagram** separado `CD-04 Identidad y operación administrativa`, en `06 Diseño lógico`. Mantenerlo por ahora independiente de la persistencia clínica: los permisos y las cuentas se pueden especificar sin dibujar ni abrir las columnas del CSV.
+
+| Paquete y clasificador | Atributos lógicos | Operaciones lógicas |
+|---|---|---|
+| Presentación · `VistaLogin` | — | `+iniciarSesion(credenciales: Credenciales)`; `+cerrarSesion()`; `+mostrarErrorGenerico()` |
+| Aplicación · `ServicioIdentidad` | — | `+autenticar(credenciales: Credenciales): SesionAdministrativa`; `+autorizar(usuario: CuentaAdministrativa, permiso: CodigoPermiso, recurso: ReferenciaInterna): Booleano`; `+cerrarSesion(sesion: SesionAdministrativa)` |
+| Aplicación · `ServicioGestionUsuarios` | — | `+crearCuenta(datos: DatosCuenta): CuentaAdministrativa`; `+desactivarCuenta(id: IdCuenta, motivo: Texto)`; `+asignarGrupo(id: IdCuenta, idGrupo: IdGrupo)` |
+| Dominio · `CuentaAdministrativa` | `+id: IdCuenta`; `+nombreUsuario: Texto`; `+activa: Booleano` | — |
+| Dominio · `GrupoPermisos` | `+id: IdGrupo`; `+nombre: Texto` | — |
+| Dominio · `PermisoSistema` | `+codigo: CodigoPermiso`; `+descripcion: Texto` | — |
+| Aplicación · `RegistroAuditoria` | `+actor: IdCuenta`; `+accion: Texto`; `+objeto: ReferenciaInterna`; `+fecha: FechaHora`; `+motivo: Texto`; `+resultado: Texto` | — |
+| Acceso a datos · `RepositorioIdentidad` **Interface** | — | `+obtenerCuenta(id: IdCuenta): CuentaAdministrativa`; `+guardarCuenta(cuenta: CuentaAdministrativa)` |
+
+Asociar `CuentaAdministrativa` con `GrupoPermisos` como muchos-a-muchos; `GrupoPermisos` con `PermisoSistema` como muchos-a-muchos. `ServicioIdentidad` depende de `RepositorioIdentidad`; toda acción administrativa depende del resultado de `autorizar` y registra un `RegistroAuditoria`. El grupo `superadmin` existe como requisito objetivo de producto; iniciar con otros grupos deshabilitados o no creados. Agregar otros grupos sin cambiar el servicio ni los controles de las vistas. No representar contraseñas en claro ni inventar campos de identidad institucional. La provisión, MFA, recuperación y segregación se validan en `Q-023`.
+
+La persistencia de archivos se refleja en `CD-03`/`ER-01`, no en la clase de usuario: `RegistroImportacion` conserva corte/versión, actor, huella, estado, procedencia y referencia opaca a objeto privado; `AlmacenArchivoPrivado` ofrece `+guardar(referenciaEntrada): IdObjetoPrivado`, `+abrir(id: IdObjetoPrivado)` bajo autorización y `+eliminar(id: IdObjetoPrivado)` solo según política. La base de datos no contiene el binario ni una URL pública. No dibujar tabla física final hasta cerrar contrato, retención y requisitos institucionales (`Q-017`, `Q-024`).
+
 ## Reglas de construcción en StarUML
 
 1. En **Model Explorer**, crear paquetes y dentro de cada uno **Class Diagram**. Arrastrar **Class**, **Interface**, **Package** y, solo cuando proceda, **Enumeration** desde el Toolbox.
 2. Seleccionar una clase y añadir atributos y operaciones con el menú contextual **Add → Attribute/Operation** o la edición rápida de la versión instalada. Escribir visibilidad, nombre y tipo (`+consultar(criterios: CriteriosConsulta): ResultadoConsulta`). Mostrar ambos compartimentos en la figura.
 3. Para una relación estructural usar **Association** y editar nombre, navegabilidad y multiplicidad de **cada extremo** en la barra de propiedades o con doble clic sobre el extremo. Una asociación no equivale a una llamada puntual.
 4. Para propiedad exclusiva del todo usar **Composition** y colocar el rombo en el todo. Para uso puntual usar **Dependency** (cliente → proveedor). Para implementar una interfaz usar **Interface Realization** (clase concreta → interfaz). Evitar agregación blanca si no se puede justificar su semántica.
-5. Para cada operación de `SD-01`/`SD-02`/`SD-03`, localizar la operación homónima en `CD-01`/`CD-03`/`CD-02`; corregir el diagrama que discrepe. En particular: `consultar`, `validar`, `obtenerDefinitivos`, `obtenerPaquete`, `derivar`, `comprobarCobertura`, `guardar`, `calcular`, `exportar` y `generar`.
+5. Para cada operación de `SD-01`/`SD-02`/`SD-03`/`SD-04`, localizar la operación homónima en `CD-01`/`CD-03`/`CD-02`/`CD-04`; corregir el diagrama que discrepe. En particular: `consultar`, `validar`, `obtenerDefinitivos`, `obtenerPaquete`, `derivar`, `comprobarCobertura`, `guardar`, `calcular`, `exportar`, `generar`, `autenticar`, `autorizar`, `asignarGrupo` y `registrarAuditoria`.
 6. Exportar la figura legible y explicar en el informe las responsabilidades, dependencias y decisión de diseño que evidencia. Una clase vacía o una colección de flechas sin multiplicidad cuando esta se conoce no constituye un diseño suficiente.
 
 La notación de asociación, composición, dependencia y realización se fundamenta en la [especificación UML de OMG](https://www.omg.org/spec/UML/2.5.1/PDF). Los controles de StarUML para atributos, operaciones, multiplicidades y realización figuran en su [documentación oficial de diagramas de clases](https://docs.staruml.io/working-with-uml-diagrams/class-diagram).
@@ -157,14 +180,16 @@ La notación de asociación, composición, dependencia y realización se fundame
 | Consulta pública sin cuenta | `CU-01` actor `Visitante público`; `ACT-02` y `SD-01` no incluyen autenticación. |
 | Solo cortes definitivos y resultados públicos autorizados | `ACT-01` recibe archivos definitivos; `SD-01` llama `obtenerDefinitivos`, calcula un `ResultadoInterno` y pasa por `PoliticaDivulgacion`; `CD-01` distingue `RepositorioCortesDefinitivos` de `ResultadoConsulta`; `CMP-01` separa incorporación de consulta pública. |
 | Quinquenios clásicos y agrupaciones adicionales | `DM-01`/`CD-01` distinguen `AgrupacionEdad` y `GrupoEdad`; `CU-01` lo describe en la ficha del caso y `ACT-02` en la selección de filtros. |
-| ONEI por edad simple, sexo y territorio | `DM-01` define `PoblacionONEI`; `ER-01` espera el archivo para claves y grano; el motor recibe denominadores compatibles. |
+| ONEI por edad simple, sexo y territorio | `DM-01` define `PoblacionONEI`; `ER-01` espera las series autorizadas para claves y cobertura; el motor recibe denominadores compatibles. |
 | Exportación CSV/Excel/PDF | `CU-01` caso `Exportar`; `CD-02` tres realizaciones de la estrategia; `SD-03` exporta el resultado autorizado. |
 | Panel interno prototipado | `CU-02`, `ACT-01`, `CD-03` y `SD-02` expresan recepción, comprobación técnica y registro de capacidades; columnas y ER físico esperan contrato de archivos. |
+| Identidad y autorización | `CU-03`, `CD-04` y `SD-04` muestran login, comprobación backend y gestión de cuentas por `superadmin`; autorización final y proveedor institucional pendientes (`Q-023`). |
+| Trazabilidad/archivo y recuperación | `CD-03`, `ER-01`, `CMP-01` y `DEP-01` distinguen metadatos de importación y binario privado; copias de BD/archivos y restauración coordinadas (`Q-022`, `Q-024`). |
 
 ### Cuestiones que bloquean precisión, no el dibujo conceptual
 
 - `Q-003`: creación, cobertura y vigencia de agrupaciones nuevas.
 - `Q-004`, `Q-005`: cotejo numérico de la estándar mundial con RNC; `Q-006`, `Q-009`: ajuste indirecto e intervalos.
-- `Q-016`, `Q-017`: estructura/versiones ONEI, plantilla y grano de archivos RNC.
+- `Q-016`, `Q-017`: estructura/versiones ONEI, plantilla autorizada, claves y contrato de archivos RNC. El grano por tumor está comunicado; falta verificarlo contra contrato/diccionario.
 - `Q-007`, `Q-017`: política de divulgación agregada y responsables de incorporación del archivo ya definitivo.
 - Rúbrica/materiales de las asignaturas: pueden exigir otros estereotipos o un orden específico; ajustar el modelo cuando se disponga de ellos, sin atribuirlos ahora a la CUJAE.

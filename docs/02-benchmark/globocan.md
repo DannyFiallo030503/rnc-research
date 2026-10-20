@@ -33,6 +33,16 @@ Las consultas pueden combinar:
 - riesgo acumulado;
 - diferentes escalas y formas de agrupación en determinadas vistas.
 
+## Tiempo: Cancer Today y Cancer Over Time
+
+No confundir la vista `Cancer Today` con `Cancer Over Time`. Cancer Today presenta las estimaciones de una edición GLOBOCAN. La herramienta separada Cancer Over Time permite explorar series temporales de incidencia y mortalidad observadas para las poblaciones que tienen datos cargados; IARC describe datos de hasta unas siete décadas y selección de período.
+
+La base actual de Cancer Over Time lista a Cuba con incidencia `—` y mortalidad 1968–2023. Por tanto, que el GCO ofrezca selección de años no significa que su serie de incidencia cubana esté disponible allí, ni que el RNC carezca de registros de incidencia por año. El Manual RNC VII documenta que los envíos se separan por año de diagnóstico, se conservan bases por año y se emiten resultados anuales (pp. 24–25 y Anexo 3.1). La fecha exacta que se toma como año de incidencia debe seguir la definición del RNC.
+
+El prototipo de Prácticas II ya permite filtrar por período/año y analizar varios años desde registros sintéticos. Cada entrega/corte de demostración puede contener más de un período; no representa todavía un contrato de importación validado para los archivos reales del RNC. El esquema observado en el archivo de prácticas no está autorizado ni mapeado; el importador debe esperar confirmación del campo de año de diagnóstico, el corte y el estado provisional/definitivo.
+
+**Implicación de diseño:** el año de incidencia debe ser una dimensión de consulta de primer nivel; los gráficos de tendencia solo deben usar períodos comparables y mostrar cobertura, estado del dato y versión/corte. El año de publicación y la fecha de actualización deben conservarse como metadatos distintos del año de incidencia.
+
 ## Patrones relevantes
 
 ### 1. Separación clara entre dimensión y medida
@@ -86,3 +96,5 @@ El referente sirve como evidencia de diseño, no como prueba de que una propuest
 - `SRC-IARC-002` — Cancer Today. Visualización cartográfica. https://gco.iarc.who.int/today/en/dataviz/globe
 - `SRC-IARC-003` — Cancer Today. Comparación mediante gráficos. https://gco.iarc.who.int/today/en/dataviz/scatter-plot
 - `SRC-IARC-004` — Cancer Today. Gráficos de barras. https://gco.iarc.who.int/today/en/dataviz/bars
+- `SRC-IARC-005` — GCO / Cancer Over Time: base y disponibilidad por población. https://gco.iarc.who.int/overtime/en/database ; lanzamiento/alcance de la serie: https://www.iarc.who.int/news-events/launch-of-new-data-on-iarc-global-cancer-observatory-and-downloads-available-on-ci5plus-exploring-cancer-trends-worldwide/
+- `SRC-RNC-003` — Manual de Procedimientos RNC VII (2024), cierre y publicación por año de diagnóstico.

@@ -1,7 +1,8 @@
 # Casos de uso del sistema — consulta pública
 
-Estado: BORRADOR v0.2; derivado del Anexo A y aclaraciones, pendiente de validación con tutora y RNC  
-Corte: 2026-10-06
+Estado: BORRADOR v0.3; derivado del Anexo A y aclaraciones de diseño, pendiente de validación con tutora y RNC
+
+Corte: 2026-10-15
 
 ## Propósito y criterio de modelado
 
@@ -14,7 +15,8 @@ El sistema de interés tiene dos áreas: consulta pública y un panel administra
 | Actor | Descripción | Estado |
 |---|---|---|
 | Visitante público | Persona que accede al sitio para consultar estadísticas agregadas y exportar el resultado. | Confirmado por el contexto del proyecto. |
-| Trabajador del RNC | Personal que incorpora y revisa el estado técnico de archivos definitivos mediante el prototipo administrativo. | Función general propuesta. Los perfiles mencionados son doctor encargado y personal de mantenimiento; permisos y responsabilidades exactas pendientes (`Q-017`). |
+| Trabajador autorizado del RNC | Personal que incorpora y revisa el estado técnico de archivos definitivos mediante el prototipo administrativo. | Función general propuesta; permisos ordinarios y responsabilidades exactas pendientes (`Q-017`, `Q-023`). |
+| Superadministrador de soporte | Administra cuentas/roles y acciones globales restringidas en la solución objetivo. | Rol `superadmin` requerido por dirección del producto (`SRC-PRJ-001`); quién recibe la designación y controles institucionales pendientes. |
 
 No se agregan jerarquías de actores ni relaciones `include`/`extend`: con el alcance confirmado no hacen falta. El diagrama público y el administrativo deben mantenerse separados para no mezclar visitantes con trabajadores.
 
@@ -49,6 +51,17 @@ El Anexo incluye el prototipo administrativo y la aclaración del proyecto estab
 9. No usar `include`/`extend` aún; las relaciones entre pasos se precisan con `ACT-01`.
 
 Estos casos son una base de diseño del prototipo, no una especificación aprobada de permisos ni de panel implementado. Los flujos detallados deben completarse al validar el procedimiento con el RNC.
+
+### Diagrama de acceso y gestión de cuentas en StarUML
+
+El producto objetivo requiere autenticación individual y un rol `superadmin`; el MVP local tiene login y control de acceso inicial, mientras la integración de identidad y controles productivos corresponden a continuidad/tesis. Añadir un tercer **Use Case Diagram** `CU-03 Acceso administrativo y gestión de usuarios`, separado del visitante y del flujo de incorporación:
+
+1. Crear el Subject `Identidad y administración del portal RNC (objetivo)`.
+2. Añadir los actores `Trabajador autorizado del RNC` y `Superadministrador de soporte`.
+3. Añadir los casos `UC-06 Iniciar/cerrar sesión administrativa`, `UC-07 Ejecutar operación administrativa autorizada`, `UC-08 Gestionar cuentas y asignar roles`, `UC-09 Cambiar configuración global versionada` y `UC-10 Consultar auditoría / revocar publicación`.
+4. Asociar el trabajador a iniciar/cerrar sesión y a la operación administrativa autorizada. Asociar el superadministrador a los casos de gestión global/cuentas/auditoría. La matriz final de permisos, segregación y si un actor puede acumular funciones sigue pendiente de `Q-023`.
+5. Añadir notas: `No hay auto-registro. En la primera implementación segura se provisiona al menos un superadmin por mecanismo institucional. Cualquier operación se autoriza en backend. Otros roles se agregan como grupos/permisos, sin cambiar la arquitectura. Este diagrama es objetivo de diseño, no función desplegada en Prácticas II.`
+6. No dibujar una relación `include` por cada comprobación de permiso; se trata como regla transversal del backend. No usar credenciales reales en el prototipo.
 
 ## Especificaciones de casos de uso
 
@@ -150,8 +163,8 @@ Usar dos **Activity Partitions** verticales: `Trabajador autorizado del RNC (rol
 ## Decisiones de modelado para el informe
 
 - No se dibuja un modelo de casos de uso del negocio todavía: el objetivo inmediato es especificar el sistema público; el flujo de archivo requiere confirmar responsables y reglas antes de modelar el proceso institucional como definitivo.
-- El panel administrativo se modela en un diagrama aparte como flujo de prototipo para trabajadores del RNC; sus permisos exactos y su implementación segura pertenecen a una etapa posterior.
-- No se incluyen dashboards avanzados, mapas coropléticos, series temporales, autenticación, auditoría ni migración como funciones de esta primera versión, pues el Anexo los ubica después de Prácticas II.
+- El panel administrativo se modela en un diagrama aparte como flujo de prototipo. Un segundo diagrama explicita autenticación, `superadmin` y gestión futura de cuentas por decisión del proyecto; la implementación segura y auditoría productiva pertenecen a una etapa posterior.
+- No se incluyen dashboards avanzados, mapas coropléticos, series temporales ni migración como funciones de esta primera versión. La autenticación/roles se especifican como arquitectura objetivo (`REQ-F-014`), sin afirmar que se implementaron en Prácticas II.
 - Solo se publican datos definitivos. Las reglas metodológicas y de confidencialidad para datos agregados deben aprobarse.
 
 ## Siguientes artefactos

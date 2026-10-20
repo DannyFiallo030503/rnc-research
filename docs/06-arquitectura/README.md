@@ -28,14 +28,14 @@ La [comparación y selección tecnológica](seleccion-tecnologica.md) documenta 
 ## Preguntas que condicionan detalles
 
 - Qué plantillas XLSX/CSV, hojas, codificación, columnas, tipos, tamaños y reglas de validación se recibirán.
-- Quién recibirá los archivos definitivos y revisará el resultado técnico de la incorporación; los permisos del doctor encargado y del personal de mantenimiento no están definidos.
+- Quién recibirá los archivos definitivos y revisará el resultado técnico de la incorporación. La dirección del proyecto requiere `superadmin`; roles ordinarios, responsables institucionales y permisos específicos siguen por validar (`Q-023`).
 - Para la etapa posterior: qué sistema/motor de BD, acceso, consultas/vistas y permisos estarían disponibles.
 - Qué respuesta recibe el gestor cuando un archivo falla el contrato técnico y cómo se comunica el rechazo al sistema que lo produjo.
 - Cómo proteger el origen de datos y preparar salidas agregadas para publicación sin exponer microdatos; se publicarán solamente cortes definitivos.
 - Cómo comprobar integridad, estructura y cobertura sin duplicar la depuración clínica que ya realizó el sistema interno.
 - Archivos, edición y regla temporal de los denominadores ONEI; reglas para agrupaciones de edad nuevas, pesos de población estándar, ajuste indirecto e intervalos. Las bandas clásicas 0–4 a 85+ ya fueron aclaradas (`SRC-RNC-005`).
 - Política para conteos pequeños, trazabilidad de archivos definitivos inmutables y errores de transferencia. Los preliminares no se publican.
-- Infraestructura de despliegue y nivel WCAG esperado.
+- Infraestructura de despliegue, almacenamiento privado, retención/copias y objetivos de recuperación (`Q-022`, `Q-024`), y nivel WCAG esperado.
 
 ## Criterio
 
