@@ -1,63 +1,52 @@
 # Decisiones pendientes para requisitos y diseño de la plataforma del RNC
 
-**Actualizado:** 6 de octubre de 2026, tras la aclaración `SRC-RNC-007`. Documento breve para conversación con el RNC; estado de cada cuestión en el [mapa de preguntas](mapa-de-preguntas.md). Fundamento y fuentes en la [investigación cubana](../03-metodologia/03-investigacion-fuentes-cubanas-privacidad-2026-10-06.md).
+**Actualizado:** 15 de octubre de 2026, tras la comunicación `SRC-RNC-010`. Esta guía diferencia aclaraciones del estudiante, evidencia pública, propuestas del equipo y validaciones institucionales pendientes. Ver [mapa de preguntas](mapa-de-preguntas.md), [aclaraciones del 15-10](../08-reuniones/06-aclaraciones-estudiante-2026-10-15.md) e [investigación de fuentes cubanas](../03-metodologia/03-investigacion-fuentes-cubanas-privacidad-2026-10-06.md).
 
-## Información ya aclarada
+## Información ya aclarada para el diseño
 
-- Las tablas clásicas usan grupos quinquenales de 0–4 hasta 85+. Debe poderse crear una agrupación nueva sin alterar esas tablas.
-- La población denominadora proviene de ONEI; el RNC facilitará desgloses por Cuba, provincia, municipio, sexo y edad simple. El *Anuario Demográfico 2024* ofrece parte de esos datos, pero aún falta el archivo exacto que se usará en el sistema.
-- Para el ajuste por edad del cáncer se toma como referencia la **estándar mundial** documentada por IARC/CI5 y citada en Manual VII y Anuario de Salud 2024. La población cubana ONEI es el denominador de las tasas, no una tabla de pesos alternativos.
-- Los archivos proceden de un sistema interno que ya depura y entrega datos definitivos. La nueva plataforma no corrige los registros definitivos.
-- La consulta será pública y la entrada inicial usará archivos Excel/CSV. La conexión directa a la base interna pertenece a una etapa posterior.
-- El RNC no incorpora actualmente intervalos de confianza en este producto; se pueden proponer como nueva función.
-- La confidencialidad específica de las salidas agregadas y los perfiles de usuario todavía deben conversarse. La actualización se prevé con una cadencia habitual de registro, sin calendario exacto confirmado.
+- Cada fila recibida representa un **tumor de una persona**. Identificadores permiten reconocer tumores múltiples de la misma persona; por ello los indicadores deben declarar si cuentan tumores o personas. No publicar microdatos ni identificadores (`Q-017`).
+- Los grupos clásicos estáticos se conservan. La propuesta futura es permitir nomencladores adicionales por rango sin sustituirlos ni restringirlos arbitrariamente. Compatibilidad matemática con tasas ajustadas todavía requiere definición (`Q-003`).
+- Los intervalos de confianza no forman parte de las salidas actuales del RNC; el proyecto propone calcularlos con método justificado y adaptar la elección si el RNC indica otro (`Q-009`).
+- No se comunicó política escrita de confidencialidad para el portal. Se debe maximizar protección: solo estadísticas agregadas autorizadas, análisis de combinaciones de filtros y controles comunes a tabla, gráfico y exportación (`Q-007`).
+- Se prevé una persona responsable (doctor, soporte o secretaría); el estudiante propone superadministración para operaciones y revocación de cortes ante errores de transferencia, con permisos auditados para cambios que alteren métodos o resultados. Es propuesta de roles, no descripción confirmada del proceso oficial (`Q-008`).
+- Diseñar para una cadencia variable: habitual de uno o dos años, con posibilidad de movimientos semanales. Conservar versiones, procedencia, publicación y revocación; no codificar calendario fijo (`Q-013`).
+- La conexión puede ser baja y la infraestructura modesta. Priorizar exactitud y eficiencia de cálculo junto con gráficos/tablas claros y cuidados; rapidez sigue siendo relevante (`Q-019`, `Q-020`).
 
-## Preguntas prioritarias que sí requieren respuesta o archivo
+## Verificación pública antes de pedir datos
 
-### 1. Población estándar y tasas ajustadas
+1. El [Anuario Estadístico de Salud 2024](https://files.sld.cu/dne/files/2025/09/AES-2024-para-sitio-3.pdf) y su [presentación MINSAP/Infomed](https://temas.sld.cu/estadisticassalud/2025/09/30/anuario-estadistico-de-salud-2024/) publican cuadros RNC con conteos y tasas, incluida tasa ajustada a población mundial y tasas por edad. La incidencia 2022 está marcada preliminar. Usar esas tablas para contrastar presentación y localizar definiciones; no asumir que equivalen al corte definitivo del proyecto.
+2. El [Anuario Demográfico de Cuba 2024 de ONEI](https://www.onei.gob.cu/sites/default/files/publicaciones/2025-07/00-anuario-demografico-2024.pdf) distingue población media y efectiva, y declara que tabulaciones y bases demográficas adicionales están disponibles a quienes las soliciten. Sus cuadros consultados no ofrecen la matriz municipio × edad simple × año; su canal concreto/descarga abierta sigue sin localizarse. ONEI calcula población efectiva anualmente, no mediante un nuevo censo cada uno o dos años. Solicitar solo la URL/catálogo o procedimiento y los campos exactos de cobertura que falten.
+3. El Manual RNC VII confirma la emisión de frecuencias absolutas y relativas; un artículo cubano basado en datos RNC publica porcentajes por localización y etapa. Ya se revisaron las fotos (capítulo CI5 de estandarización etaria). Para cada salida del portal aún hay que fijar universo, denominador, desconocidos y redondeo; separar conteos de tumores y de personas.
+4. La estándar de ajuste publicada en los anuarios de salud es la mundial; población cubana ONEI funciona como denominador. La población estándar y las tasas públicas sirven para contrastar, pero un ejemplo agregado no basta para validar cada regla de cálculo.
 
-La aclaración posterior del estudiante resuelve la ambigüedad: se usan normas internacionales de cáncer y población cubana para denominadores. La tabla de pesos mundial Segi/Doll está documentada por [IARC/CI5](https://ci5.iarc.who.int/ci5-xii/about/) para 18 grupos quinquenales. Pedimos **una tasa directa publicada y sus datos de entrada** para comprobar la edición, el redondeo y las reglas de edades faltantes. Para el ajuste indirecto: ¿qué medida y tasas de referencia se esperan? (`Q-004` a `Q-006`).
+## Puntos concretos para validar cuando se haya agotado la evidencia documental
 
-### 2. Series ONEI y correspondencia de datos
+### Población y métodos estadísticos (`Q-004`–`Q-006`, `Q-009`, `Q-016`, `Q-018`, `Q-021`)
 
-¿Pueden facilitarse los archivos de población por **año × territorio × sexo × edad simple**, su edición, fuente y códigos territoriales? ¿Corresponden a población media anual, efectiva u otra serie? ¿Qué regla se aplica cuando falta una combinación? La cifra de población de una tasa debe corresponder al mismo período y estrato que los casos (`Q-016`).
+- Localizar edición pública ONEI y verificar territorio, sexo, edad simple, años, códigos y si los valores son población media o efectiva. Si falta cobertura, pedir al responsable RNC/ONEI la referencia exacta, no un archivo duplicado.
+- Identificar en los materiales existentes una tasa RNC reproducible, su estándar, redondeo y tratamiento de edades desconocidas. Para ajuste indirecto, el método y la población/tasas de referencia siguen abiertos.
+- Cotejar con el RNC el denominador y redondeo de cada salida de frecuencia relativa. Las publicaciones prueban que existen porcentajes, pero no una convención única para todas las tablas. Especificar por separado conteo de tumores y de personas y documentar desconocidos/solapamientos.
+- El equipo propondrá métodos y nivel de IC por indicador; contrastará resultados con fuentes metodológicas y ejemplos antes de mostrarlos como cálculo validado.
 
-### 3. Definición de frecuencia relativa
+### Archivo y controles (`Q-017`)
 
-El denominador de un porcentaje de casos es un **total de casos**, distinto de la población ONEI que denomina una tasa. ¿Cuál es el universo de casos para cada porcentaje publicado y cómo se manejan categorías desconocidas y redondeo? Solicitamos una tabla o cálculo de ejemplo (`Q-018`).
+- El CSV de muestra contiene 84 encabezados en orden fijo y las futuras entregas mantendrán la estructura, según aclaración previa. El grano tumor/persona ya está comunicado; falta diccionario autorizado, campos que vinculan tumores a una persona, semántica de columnas/códigos, cobertura y procedencia autorizada.
+- Confirmar si ese CSV es un extracto autorizado y distinto del paquete de envío interno que regula el Anexo 3.1 del Manual. No manipular ni mapear encabezados a conceptos geográficos/tumorales sin diccionario.
 
-### 4. Contrato de los archivos definitivos
+### Publicación, operación y roles (`Q-007`, `Q-008`, `Q-013`)
 
-Ya se dispone de `BD PARA DANI.csv` como ejemplo de estructura y Danny confirmó que futuras entregas conservarán los mismos 84 encabezados y orden, aunque varíe la cantidad de filas (ver `esquema-archivo-recibido.md`). ¿Puede facilitarse el diccionario autorizado de columnas, tipos, formatos, codificación, catálogos, años y metadatos? ¿Cada fila representa un tumor/caso, persona, reporte u otra entidad? ¿Qué identificador y señal del sistema interno acreditan origen y estado definitivo? ¿Cómo debe comunicarse un **rechazo técnico** por formato, integridad o cobertura sin modificar el archivo definitivo? (`Q-017`, `Q-008`).
+- Definir con el responsable institucional política de divulgación agregada, protección contra inferencia por filtros y regla común de supresión para consultas y exportaciones.
+- Modelar carga, revisión técnica, publicación versionada y revocación auditada. La revocación retira un corte público; no edita ni corrige casos.
+- Confirmar quién opera, quién administra configuración y métodos, quién publica/revoca, y qué acciones requieren revisión o registro. La propuesta de superadministrador es diseño del equipo hasta validarla con el flujo real descrito en el Manual y la propuesta de trabajo.
 
-### 5. Agrupaciones de edad nuevas
+### Experiencia y operación (`Q-014`, `Q-015`, `Q-019`, `Q-020`)
 
-¿Quién puede definir una agrupación nueva; se guarda o solo vive durante la consulta? ¿Debe cubrir todas las edades sin huecos ni solapamientos? ¿Puede usarse para tasas ajustadas o solo para tablas y tasas específicas? ¿Cómo se enlaza cada grupo con edades simples y pesos del estándar? (`Q-003`).
+- Convertir claridad visual, accesibilidad, eficiencia y conectividad limitada en tareas de prototipo y criterios medibles. Los perfiles/tareas, dispositivos, navegadores y condiciones de red para evaluación todavía no se han especificado.
 
-### 6. Intervalos de confianza como propuesta
+## Material útil para la validación siguiente
 
-¿Se acepta mostrarlos como función nueva? De ser así, ¿nivel (por ejemplo 95 %), método para conteos y tasas, tratamiento de cero y conteos pequeños, y ejemplos de resultados esperados? La elección del método se propondrá y validará antes de implementarse (`Q-009`).
-
-### 7. Confidencialidad de consultas y exportaciones
-
-La Constitución, la Ley 149/2022 y la Resolución 58/2022 protegen datos personales y sensibles; no establecen por sí solas un número universal de casos para ocultar una celda. Proponemos publicar solo agregados autorizados, evaluar combinaciones de filtros que permitan inferencias, controlar descargas con la misma política y documentar supresión/redondeo cuando proceda. ¿Quién aprueba la política institucional, quién revisa resultados con pocos casos y qué datos nunca deben salir? (`Q-007`).
-
-### 8. Responsabilidades del panel y publicación
-
-¿Qué tareas exactas harán el doctor encargado y el personal de mantenimiento? ¿Quién incorpora archivos definitivos, ve incidencias técnicas, autoriza las salidas agregadas y administra series ONEI? ¿Qué acciones requieren registro de acceso o auditoría? Estas preguntas no suponen una nueva aprobación de la definitividad del archivo (`Q-017`).
-
-### 9. Actualización y trazabilidad
-
-¿Qué calendario aproximado de nuevos archivos definitivos se espera? ¿Qué año diagnóstico, fecha de recepción, fuente, identificador o huella y versión deben mostrarse al público? ¿Qué procedimiento excepcional seguiría la plataforma ante un error de transferencia, sin corregir casos en ella? Las cifras preliminares del Anuario de Salud 2024 y los archivos definitivos entrantes se tratarán como series diferentes mientras no se demuestre su relación (`Q-008`, `Q-010`).
-
-### 10. Validación y experiencia de uso
-
-Proponemos tareas representativas para público general, profesionales e investigadores; salida tabular accesible junto a gráficos; navegación por teclado; criterios WCAG 2.2 nivel AA; páginas ligeras para conectividad cubana; y pruebas de cálculos contra ejemplos aprobados. ¿Qué perfiles pueden participar en la revisión y qué condiciones de infraestructura, navegadores, tiempo de respuesta y descarga deben tomarse como metas? (`Q-014`, `Q-015`, `Q-019`).
-
-## Material más útil para la siguiente reunión
-
-1. Un archivo de datos definitivo autorizado y su diccionario.
-2. La serie ONEI exacta que corresponderá a esos datos.
-3. Dos o tres ejemplos de tasas RNC ya calculadas, con casos y denominadores usados, para contrastar la tabla mundial IARC y el redondeo.
-4. Un ejemplo de tabla con frecuencia relativa y la definición de su total.
-5. Un responsable que pueda revisar la política de divulgación y las funciones del panel.
+- URL/catálogo ONEI o procedimiento de solicitud de la serie por año, municipio, sexo, edad simple y tipo de población; precisar cobertura que falte.
+- Confirmación RNC de fórmula/denominador, desconocidos y redondeo para cada frecuencia relativa interactiva.
+- Ejemplo agregado reproducible de tasa RNC para cotejar fórmula/estándar/redondeo.
+- Diccionario autorizado que relacione claves de persona y tumor sin copiar microdatos a documentación.
+- Descripción vigente de responsables/roles y del procedimiento de publicación o retirada de un corte.
